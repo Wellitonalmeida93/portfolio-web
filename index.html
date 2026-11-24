@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welliton Almeida | Data Analyst & Analytics Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        brand: {
+                            light: '#60a5fa',
+                            DEFAULT: '#3b82f6',
+                            dark: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .badge {
+            transition: all 0.2s ease;
+        }
+        .badge:hover {
+            background-color: rgba(96, 165, 250, 0.15);
+            border-color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulseFlow {
+            0%, 100% { opacity: 0.35; transform: scaleX(0.95); }
+            50% { opacity: 1; transform: scaleX(1.05); }
+        }
+        .flow-connector {
+            animation: pulseFlow 2s infinite ease-in-out;
+        }
+
+        .flow-node {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .flow-node:hover {
+            transform: translateY(-3px) scale(1.03);
+        }
+        .flow-node.active {
+            border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.18);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-DEFAULT selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-mono font-bold text-xl tracking-tighter">
+                    <a href="#" class="text-white hover:text-brand-light transition-colors">WA<span class="text-brand-DEFAULT">.</span>data</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#portfolio" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                        <a href="#skills" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#contact" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 relative overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-dark/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-900/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <p class="font-mono text-brand-light mb-4 tracking-wide">Olá, eu sou</p>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                Welliton Almeida
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-semibold text-slate-400 mb-8">
+                Transformando dados complexos em <span class="gradient-text">decisões estratégicas.</span>
+            </h2>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Analista de Dados & Analytics Engineer especializado em automação de processos operacionais, 
+                integração de bancos de dados e desenvolvimento de Dashboards Executivos focados em Logística, Frota e Finanças.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="bg-brand-DEFAULT hover:bg-brand-light text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-brand-DEFAULT/30 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-chart-simple"></i> Ver Projetos
+                </a>
+                <a href="CV_Welliton_Almeida_Data_Analytics.pdf" target="_blank" class="bg-dark-800 border border-slate-600 hover:border-brand-light text-white font-medium py-3 px-8 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-red-400"></i> Baixar CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 pt-20">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Portfólio em Ação</h2>
+                <div class="w-20 h-1 bg-brand-DEFAULT mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-400">Problemas reais da operação resolvidos com dados e automação.</p>
+            </div>
+
+            <!-- Categoria 1: BI Dashboards -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8 flex items-center gap-3 text-slate-200">
+                    <i class="fa-solid fa-chart-pie text-brand-light"></i> Power BI & Visualização
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- BI Project 1 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden bg-slate-800">
+                            <img src="https://placehold.co/600x400/1e293b/60a5fa?text=Dashboard+Logistica+360" alt="Dashboard Preview" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2">Painel Logístico 360º</h4>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Dashboard interativo desenvolvido para a operação Volvo. Monitoramento em tempo real de entregas no prazo (OTIF), SLAs e gargalos, permitindo agir rápido na causa-raiz de atrasos.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Power BI</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">DAX</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Star Schema</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BI Project 2 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden bg-slate-800">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Controle+Frota+e+Telemetria" alt="Frota Preview" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2">Gestão de Frotas (Pizzattolog)</h4>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Centralização dos custos de Manutenção, Pneus e Pedágios em um único painel gerencial para auditar gastos por veículo e apoiar renegociações de tarifas com fornecedores.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Power BI</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-800">PostgreSQL</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Power Query</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BI Project 3 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden bg-slate-800">
+                            <img src="https://placehold.co/600x400/1e293b/a78bfa?text=Forecast+Demand+Model" alt="Forecast Preview" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2">Forecast & Análise Preditiva</h4>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Projeção de demanda usando histórico de movimentação em Python integrado ao Power BI, ajudando a operação a dimensionar frota e equipe antes dos picos de volume.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Power BI</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-yellow-900/40 text-yellow-300 border border-yellow-800">Python</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-800">Estatística</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria 2: Engenharia e Automação -->
+            <div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8">
+                    <h3 class="text-2xl font-semibold flex items-center gap-3 text-slate-200">
+                        <i class="fa-solid fa-gears text-purple-400"></i> Automações & Processos Operacionais
+                    </h3>
+                    <span class="text-xs font-mono text-slate-400">
+                        <i class="fa-solid fa-hand-pointer text-brand-light mr-1"></i> Clique nos cards para ver a dor resolvida e cada etapa
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Code Project 1: Telemetria -->
+                    <div onclick="abrirFluxo('pipeline')" class="cursor-pointer project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full border-t-4 border-t-purple-500">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 text-2xl">
+                                    <i class="fa-solid fa-gas-pump"></i>
+                                </div>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-purple-900/30 text-purple-300 border border-purple-700/50">
+                                    Frota & Consumo
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Consolidação Diária de Abastecimento e Telemetria</h4>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">
+                                Antes, cruzar litros abastecidos (Ticketlog) com KM rodado (Gobrax) exigia baixar planilhas separadas todo mês. Hoje, um robô busca esses dados sozinho todo dia e calcula a média real (Km/L) de cada caminhão.
+                            </p>
+                            <div class="bg-dark-900/80 border border-slate-700/70 rounded-xl p-3 mb-5 flex items-center justify-between text-[11px] font-mono text-slate-300">
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Ticketlog + Gobrax</span>
+                                <i class="fa-solid fa-arrow-right text-purple-400 flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Cálculo Km/L</span>
+                                <i class="fa-solid fa-arrow-right text-purple-400 flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Banco BI</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-800">Python</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-green-900/40 text-green-300 border border-green-800">PostgreSQL</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-800">Automação Nuvem</span>
+                            </div>
+                            <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-mono text-purple-300">
+                                <span>Ver como funciona na prática</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Project 2: RPA ANTT -->
+                    <div onclick="abrirFluxo('antt')" class="cursor-pointer project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full border-t-4 border-t-orange-500">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-400 text-2xl">
+                                    <i class="fa-solid fa-file-shield"></i>
+                                </div>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-900/30 text-emerald-300 border border-emerald-700/50">
+                                    Em Produção
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Robô de Multas e Auditoria ANTT</h4>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">
+                                Consultar vários CNPJs no portal da ANTT, baixar PDFs de 6 páginas um por um e digitar valores de frete na planilha levava horas e gerava risco de perder prazos. O robô faz toda essa varredura, baixa os PDFs e confere o cálculo da multa sozinho.
+                            </p>
+                            <div class="bg-dark-900/80 border border-slate-700/70 rounded-xl p-3 mb-5 flex items-center justify-between text-[11px] font-mono text-slate-300">
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Portal ANTT</span>
+                                <i class="fa-solid fa-arrow-right text-orange-400 flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Lê PDFs</span>
+                                <i class="fa-solid fa-arrow-right text-orange-400 flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Planilha Auditada</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-800">Python RPA</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-800">Leitura de PDF</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-800">Excel Automático</span>
+                            </div>
+                            <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-mono text-orange-300">
+                                <span>Ver como funciona na prática</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Project 3: Relatório Custo Operacional n8n -->
+                    <div onclick="abrirFluxo('n8n')" class="cursor-pointer project-card glass-card rounded-2xl overflow-hidden flex flex-col h-full border-t-4 border-t-brand-DEFAULT">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-brand-dark/30 rounded-lg flex items-center justify-center text-brand-light text-2xl">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                </div>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-900/30 text-emerald-300 border border-emerald-700/50">
+                                    Em Produção
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Relatório Automático de Custo Operacional (n8n)</h4>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">
+                                Fechar o custo real da operação exigia cruzar dados espalhados em 5 lugares: planilhas de operação, folhas de pedágios e 3 bases SQL (ingressos, veículos/motoristas e KM rodado). O fluxo coleta tudo sozinho, consolida em Excel e envia por e-mail.
+                            </p>
+                            <div class="bg-dark-900/80 border border-slate-700/70 rounded-xl p-3 mb-5 flex items-center justify-between text-[11px] font-mono text-slate-300">
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">3 Bases SQL + Sheets</span>
+                                <i class="fa-solid fa-arrow-right text-brand-light flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Consolida</span>
+                                <i class="fa-solid fa-arrow-right text-brand-light flow-connector"></i>
+                                <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">Excel + E-mail</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-800">n8n</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-800">PostgreSQL (3 Bases)</span>
+                                <span class="text-xs font-mono px-2 py-1 rounded-full bg-blue-900/40 text-blue-300 border border-blue-800">Excel + E-mail</span>
+                            </div>
+                            <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-mono text-brand-light">
+                                <span>Ver como funciona na prática</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-700 pt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tech Stack & Ferramentas</h2>
+                <div class="w-20 h-1 bg-brand-DEFAULT mx-auto rounded-full mb-4"></div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl mx-auto">
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-brands fa-python text-yellow-400 text-2xl"></i>
+                    <span class="font-medium">Python (Pandas, Playwright)</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-database text-blue-400 text-2xl"></i>
+                    <span class="font-medium">SQL / PostgreSQL</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-chart-bar text-yellow-500 text-2xl"></i>
+                    <span class="font-medium">Power BI / DAX</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-bolt text-emerald-400 text-2xl"></i>
+                    <span class="font-medium">Supabase</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-gears text-pink-500 text-2xl"></i>
+                    <span class="font-medium">n8n / Power Automate</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-robot text-orange-400 text-2xl"></i>
+                    <span class="font-medium">RPA & Leitura de PDFs</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-brands fa-github text-white text-2xl"></i>
+                    <span class="font-medium">Git / GitHub Actions</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-cloud text-indigo-400 text-2xl"></i>
+                    <span class="font-medium">Cloud Deploy (Render)</span>
+                </div>
+                <div class="badge glass-card px-6 py-3 rounded-xl flex items-center gap-3 cursor-default border border-slate-700">
+                    <i class="fa-solid fa-cubes text-slate-300 text-2xl"></i>
+                    <span class="font-medium">Data Modeling (Star Schema)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <section id="contact" class="py-16 bg-dark-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Vamos Conversar?</h2>
+            <p class="text-slate-400 mb-10">
+                Se você busca um profissional capaz de conectar o mundo dos negócios à tecnologia de dados, através de dashboards limpos e processos orquestrados e autônomos, estou à disposição.
+            </p>
+            
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="mailto:almeida.welliton@outlook.com" title="E-mail" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            
+            <p class="text-slate-600 text-sm font-mono">
+                © 2026 Welliton Almeida. Todos os direitos reservados.
+            </p>
+        </div>
+    </section>
+
+    <!-- MODAL INTERATIVO DO PROCESSO -->
+    <div id="fluxoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4" onclick="fecharModalFora(event)">
+        <div class="glass-card bg-dark-800 border border-slate-700 rounded-2xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl max-h-[92vh] overflow-y-auto">
+            <button onclick="fecharModal()" class="absolute top-5 right-5 w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5">
+                <span id="modalBadge" class="font-mono text-xs uppercase tracking-wider px-2.5 py-1 rounded bg-brand-DEFAULT/20 text-brand-light border border-brand-DEFAULT/30">
+                    Processo Automatizado
+                </span>
+                <h3 id="modalTitulo" class="text-2xl md:text-3xl font-bold text-white mt-3"></h3>
+            </div>
+
+            <!-- Bloco: Qual era a dor do processo? -->
+            <div class="bg-amber-950/25 border border-amber-700/40 rounded-xl p-4 mb-6 flex items-start gap-3">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5"></i>
+                <div>
+                    <h4 class="text-xs font-mono uppercase text-amber-400 mb-1">Qual era o problema (a dor da operação)?</h4>
+                    <p id="modalDor" class="text-sm text-slate-200 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <!-- Diagrama Visual de Etapas Clicáveis -->
+            <div class="bg-dark-900/90 border border-slate-700/80 rounded-2xl p-4 md:p-6 mb-6" style="background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px); background-size: 18px 18px;">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <span class="text-xs font-mono text-slate-400">
+                        <i class="fa-solid fa-circle-nodes text-brand-light mr-1.5"></i> Clique em cada etapa abaixo para entender o passo a passo:
+                    </span>
+                    <button onclick="simularExecucao()" id="btnSimular" class="text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-play"></i> Ver Passo a Passo
+                    </button>
+                </div>
+
+                <div id="diagramaNodes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+            </div>
+
+            <!-- Painel de Explicação da Etapa Selecionada -->
+            <div id="painelDetalheNo" class="bg-slate-900/90 border border-slate-700 rounded-xl p-5 mb-6 transition-all"></div>
+
+            <!-- Resultado / Ganho Real -->
+            <div class="bg-emerald-950/30 border border-emerald-800/50 rounded-xl p-4 flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5"></i>
+                <div>
+                    <h4 class="text-xs font-mono uppercase text-emerald-400 mb-1">O que mudou na prática (Ganho Real)</h4>
+                    <p id="modalImpacto" class="text-sm text-slate-200 leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fluxosData = {
+            n8n: {
+                badge: "Automação de Fechamento • n8n + SQL",
+                titulo: "Relatório Automático de Custo Operacional",
+                dor: "Para fechar o custo real da operação, era preciso abrir vários sistemas e planilhas separadas: buscar receitas e ingressos no banco SQL, levantar custos de veículos e equipe, puxar o KM rodado, cruzar com planilhas externas de operação e pedágios, consolidar tudo na mão e montar um Excel para enviar por e-mail. Era demorado, repetitivo e sujeito a erro de digitação.",
+                impacto: "O fechamento que antes dependia de coleta manual em 5 fontes diferentes agora roda no piloto automático. A gestão recebe o relatório completo em Excel direto no e-mail, com todos os custos de manutenção, pedágio, receitas e KM consolidados e conferidos.",
+                nodes: [
+                    {
+                        id: 0,
+                        step: "PASSO 01",
+                        titulo: "Disparo no Horário Programado",
+                        ferramenta: "Agendamento + Loop",
+                        icone: "fa-clock",
+                        cor: "text-pink-400",
+                        descricao: "No horário agendado, o fluxo inicia sozinho, prepara o período/filiais que precisam ser fechados e entra em um loop para processar item por item sem deixar nada para trás.",
+                        entrada: "Horário programado de fechamento",
+                        saida: "Fila de períodos/unidades pronta para consulta"
+                    },
+                    {
+                        id: 1,
+                        step: "PASSO 02",
+                        titulo: "Busca em 5 Fontes ao Mesmo Tempo",
+                        ferramenta: "3 Bases SQL + 2 Planilhas",
+                        icone: "fa-database",
+                        cor: "text-blue-400",
+                        descricao: "De uma só vez, o fluxo busca dados em 5 lugares diferentes: consulta no SQL os Registros de Ingressos (receitas), os dados de Veículos e Homens (custos de frota/equipe) e o KM Consolidado, enquanto puxa online as Planilhas de Operação e as Folhas de Pedágios.",
+                        entrada: "Consultas SQL + Links das planilhas",
+                        saida: "Dados brutos das 5 fontes reunidos"
+                    },
+                    {
+                        id: 2,
+                        step: "PASSO 03",
+                        titulo: "Cruzamento e Consolidação",
+                        ferramenta: "Mesclar + Regras de Cálculo",
+                        icone: "fa-code-merge",
+                        cor: "text-purple-400",
+                        descricao: "O nó 'Mesclar' junta as 5 fontes e passa para o bloco de consolidação, que cruza receita, pedágio, custo de veículo/manutenção e quilometragem rodada de cada período.",
+                        entrada: "5 tabelas separadas",
+                        saida: "Base única de custo operacional fechada"
+                    },
+                    {
+                        id: 3,
+                        step: "PASSO 04",
+                        titulo: "Gera o Excel e Envia por E-mail",
+                        ferramenta: "Planilha + E-mail Automático",
+                        icone: "fa-paper-plane",
+                        cor: "text-emerald-400",
+                        descricao: "Assim que o loop termina de consolidar tudo, o fluxo recupera os dados finais, monta o arquivo Excel formatado e dispara automaticamente por e-mail para os responsáveis.",
+                        entrada: "Dados consolidados prontos",
+                        saida: "Relatório Excel entregue na caixa de entrada"
+                    }
+                ]
+            },
+            antt: {
+                badge: "Automação de Multas • Python RPA",
+                titulo: "Robô de Consulta e Auditoria de Multas ANTT",
+                dor: "Acompanhar autos de infração de Piso Mínimo de Frete entre matriz e filiais exigia entrar manualmente no portal do governo, filtrar CNPJ por CNPJ, baixar dezenas de PDFs de 6 páginas e digitar na planilha os valores de frete, distância e tarifas para conferir se a multa fazia sentido.",
+                impacto: "Eliminação de horas semanais de trabalho braçal, zero risco de esquecer uma multa nova sem prazo de defesa e conferência matemática automática de todas as tarifas na planilha.",
+                nodes: [
+                    {
+                        id: 0,
+                        step: "PASSO 01",
+                        titulo: "Acesso Seguro ao Portal",
+                        ferramenta: "Login Assistido",
+                        icone: "fa-shield-halved",
+                        cor: "text-orange-400",
+                        descricao: "O robô abre o portal da ANTT apenas para a validação inicial de segurança (CAPTCHA) e depois assume a navegação em segundo plano sem atrapalhar o computador.",
+                        entrada: "Acesso ao portal SPMI / ANTT",
+                        saida: "Sessão autenticada pronta para consulta"
+                    },
+                    {
+                        id: 1,
+                        step: "PASSO 02",
+                        titulo: "Descobre Multas Novas",
+                        ferramenta: "Cruzamento Multi-CNPJ",
+                        icone: "fa-magnifying-glass-chart",
+                        cor: "text-blue-400",
+                        descricao: "Baixa o relatório geral de todas as empresas do grupo (matriz e filiais) e compara com a nossa planilha de controle para identificar quais autos ainda não foram baixados.",
+                        entrada: "Relatório geral da ANTT + Planilha interna",
+                        saida: "Lista exata das multas pendentes"
+                    },
+                    {
+                        id: 2,
+                        step: "PASSO 03",
+                        titulo: "Baixa e Organiza os PDFs",
+                        ferramenta: "Download Automático",
+                        icone: "fa-file-pdf",
+                        cor: "text-red-400",
+                        descricao: "Para cada multa nova, o robô seleciona o CNPJ correto no sistema, baixa o PDF completo do processo, confere se o arquivo não veio corrompido e salva na pasta certa da rede.",
+                        entrada: "Número do auto e CNPJ",
+                        saida: "PDF salvo e organizado na pasta da rede"
+                    },
+                    {
+                        id: 3,
+                        step: "PASSO 04",
+                        titulo: "Lê o PDF e Preenche o Excel",
+                        ferramenta: "Extração + Auditoria",
+                        icone: "fa-file-excel",
+                        cor: "text-emerald-400",
+                        descricao: "O robô lê dentro do PDF a origem, destino, KM, eixos, valor do frete pago e tarifas da ANTT, preenche a planilha sozinho e já aplica as fórmulas para conferir se houve diferença.",
+                        entrada: "PDF do auto de infração",
+                        saida: "Planilha preenchida e auditada"
+                    }
+                ]
+            },
+            pipeline: {
+                badge: "Automação de Frota • Dados Diários",
+                titulo: "Consolidação Diária de Abastecimento e Telemetria",
+                dor: "Os dados de abastecimento ficavam no sistema da Ticketlog e os dados de quilometragem e condução ficavam no rastreador Gobrax. Para saber quanto cada caminhão estava fazendo por litro (Km/L), era preciso exportar relatórios manuais e cruzar placas na planilha.",
+                impacto: "A diretoria e a gestão de frota passaram a enxergar o consumo médio real (Km/L) atualizado todos os dias, separado por tipo de cavalo mecânico (4x2, 6x2) e por placa, direto no Power BI.",
+                nodes: [
+                    {
+                        id: 0,
+                        step: "PASSO 01",
+                        titulo: "Rotina Diária Automática",
+                        ferramenta: "Agendamento Nuvem",
+                        icone: "fa-cloud",
+                        cor: "text-indigo-400",
+                        descricao: "Todos os dias, sem depender de ninguém ligar o computador, o script inicia automaticamente na nuvem para atualizar os dados do dia anterior.",
+                        entrada: "Agendamento diário automático",
+                        saida: "Coleta iniciada"
+                    },
+                    {
+                        id: 1,
+                        step: "PASSO 02",
+                        titulo: "Coleta Abastecimento e KM",
+                        ferramenta: "Ticketlog + Gobrax",
+                        icone: "fa-plug",
+                        cor: "text-purple-400",
+                        descricao: "Conecta direto nos sistemas de abastecimento (litros e valor gasto) e de telemetria (odômetro, KM rodado e velocidade média) trazendo os registros atualizados.",
+                        entrada: "Sistemas Ticketlog e Gobrax",
+                        saida: "Histórico diário de litros e KM"
+                    },
+                    {
+                        id: 2,
+                        step: "PASSO 03",
+                        titulo: "Limpeza e Cálculo da Média Real",
+                        ferramenta: "Padronização de Frota",
+                        icone: "fa-filter",
+                        cor: "text-yellow-400",
+                        descricao: "Padroniza o formato das placas, remove registros duplicados, classifica o grupo do veículo (4x2, 6x2) e calcula a média real ponderada (total de KM dividido pelo total de litros).",
+                        entrada: "Registros brutos dos dois sistemas",
+                        saida: "Tabela limpa com Km/L real calculado"
+                    },
+                    {
+                        id: 3,
+                        step: "PASSO 04",
+                        titulo: "Alimenta o Banco e o Power BI",
+                        ferramenta: "PostgreSQL + BI",
+                        icone: "fa-server",
+                        cor: "text-emerald-400",
+                        descricao: "Salva os dados consolidados no banco PostgreSQL, deixando tudo pronto para os dashboards executivos e reuniões gerenciais de desempenho da frota.",
+                        entrada: "Dados consolidados por placa e mês",
+                        saida: "Dashboards atualizados automaticamente"
+                    }
+                ]
+            }
+        };
+
+        let fluxoAtual = null;
+        let timerSimulacao = null;
+
+        function abrirFluxo(chave) {
+            fluxoAtual = fluxosData[chave];
+            if (!fluxoAtual) return;
+
+            document.getElementById('modalBadge').textContent = fluxoAtual.badge;
+            document.getElementById('modalTitulo').textContent = fluxoAtual.titulo;
+            document.getElementById('modalDor').textContent = fluxoAtual.dor;
+            document.getElementById('modalImpacto').textContent = fluxoAtual.impacto;
+
+            renderizarNodes(0);
+
+            const modal = document.getElementById('fluxoModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function renderizarNodes(ativoIdx) {
+            const container = document.getElementById('diagramaNodes');
+            container.innerHTML = fluxoAtual.nodes.map((no, idx) => {
+                const isAtivo = idx === ativoIdx;
+                return `
+                    <div onclick="selecionarNo(${idx})" id="node-${idx}"
+                         class="flow-node cursor-pointer rounded-xl p-4 border ${isAtivo ? 'active border-brand-light bg-brand-DEFAULT/15' : 'border-slate-700 bg-dark-800/90 hover:border-slate-500'} relative">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-slate-400">${no.step}</span>
+                            <i class="fa-solid ${no.icone} ${no.cor} text-base"></i>
+                        </div>
+                        <h5 class="font-bold text-sm text-white mb-1">${no.titulo}</h5>
+                        <span class="inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700">
+                            ${no.ferramenta}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+
+            atualizarDetalheNo(ativoIdx);
+        }
+
+        function selecionarNo(idx) {
+            if (timerSimulacao) {
+                clearInterval(timerSimulacao);
+                timerSimulacao = null;
+            }
+            renderizarNodes(idx);
+        }
+
+        function atualizarDetalheNo(idx) {
+            const no = fluxoAtual.nodes[idx];
+            document.getElementById('painelDetalheNo').innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <span class="px-2.5 py-0.5 rounded text-xs font-mono bg-brand-DEFAULT/20 text-brand-light border border-brand-DEFAULT/40">${no.step}</span>
+                        <h4 class="text-lg font-bold text-white">${no.titulo}</h4>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">O que usa: <strong class="text-slate-200">${no.ferramenta}</strong></span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">${no.descricao}</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                    <div class="bg-dark-900/90 border border-slate-700/70 rounded-lg p-3">
+                        <span class="text-slate-500 block mb-1">O QUE ENTRA NESSA ETAPA:</span>
+                        <span class="text-slate-200">${no.entrada}</span>
+                    </div>
+                    <div class="bg-dark-900/90 border border-slate-700/70 rounded-lg p-3">
+                        <span class="text-slate-500 block mb-1">O QUE SAI PRONTO:</span>
+                        <span class="text-emerald-300">${no.saida}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function simularExecucao() {
+            if (timerSimulacao) clearInterval(timerSimulacao);
+            let passo = 0;
+            renderizarNodes(passo);
+
+            timerSimulacao = setInterval(() => {
+                passo++;
+                if (passo >= fluxoAtual.nodes.length) {
+                    clearInterval(timerSimulacao);
+                    timerSimulacao = null;
+                    return;
+                }
+                renderizarNodes(passo);
+            }, 1500);
+        }
+
+        function fecharModal() {
+            if (timerSimulacao) clearInterval(timerSimulacao);
+            const modal = document.getElementById('fluxoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function fecharModalFora(e) {
+            if (e.target.id === 'fluxoModal') {
+                fecharModal();
+            }
+        }
+    </script>
+</body>
+</html>
