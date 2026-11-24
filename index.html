@@ -86,6 +86,16 @@
             animation: pulseFlow 2s infinite ease-in-out;
         }
 
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+            50% { transform: translateY(-14px) rotate(var(--rot, 0deg)); }
+        }
+        .bg-data-icon {
+            animation: floatSlow 7s ease-in-out infinite;
+            pointer-events: none;
+            user-select: none;
+        }
+
         .flow-node {
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -154,8 +164,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 relative overflow-hidden">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-dark/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-900/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <!-- Luzes de fundo -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-dark/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-900/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+        <!-- Ícones Flutuantes Desfocados (Lado Esquerdo) -->
+        <div class="hidden md:block pointer-events-none select-none" aria-hidden="true">
+            <i class="fa-brands fa-python bg-data-icon absolute top-28 left-[7%] text-6xl text-yellow-400/15 blur-[2px]" style="--rot: -12deg; animation-delay: 0s;"></i>
+            <i class="fa-solid fa-database bg-data-icon absolute top-64 left-[14%] text-5xl text-blue-400/15 blur-[1.5px]" style="--rot: 8deg; animation-delay: 1.5s;"></i>
+            <i class="fa-solid fa-chart-line bg-data-icon absolute bottom-24 left-[6%] text-6xl text-emerald-400/15 blur-[2px]" style="--rot: -8deg; animation-delay: 3s;"></i>
+            <i class="fa-solid fa-code bg-data-icon absolute top-44 left-[4%] text-3xl text-slate-400/10 blur-[2px]" style="--rot: 15deg; animation-delay: 2s;"></i>
+        </div>
+
+        <!-- Ícones Flutuantes Desfocados (Lado Direito) -->
+        <div class="hidden md:block pointer-events-none select-none" aria-hidden="true">
+            <i class="fa-solid fa-diagram-project bg-data-icon absolute top-28 right-[8%] text-6xl text-pink-400/15 blur-[2px]" style="--rot: 12deg; animation-delay: 0.8s;"></i>
+            <i class="fa-solid fa-chart-pie bg-data-icon absolute top-64 right-[14%] text-5xl text-purple-400/15 blur-[1.5px]" style="--rot: -10deg; animation-delay: 2.2s;"></i>
+            <i class="fa-solid fa-robot bg-data-icon absolute bottom-24 right-[7%] text-6xl text-orange-400/15 blur-[2px]" style="--rot: 10deg; animation-delay: 3.5s;"></i>
+            <i class="fa-solid fa-file-excel bg-data-icon absolute top-44 right-[4%] text-3xl text-emerald-400/10 blur-[2px]" style="--rot: -14deg; animation-delay: 1.2s;"></i>
+        </div>
         
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <p class="font-mono text-brand-light mb-4 tracking-wide">Olá, eu sou</p>
@@ -167,7 +194,7 @@
             </h2>
             <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Analista de Dados & Analytics Engineer especializado em automação de processos operacionais, 
-                integração de bancos de dados e desenvolvimento de Dashboards Executivos.
+                integração de bancos de dados e desenvolvimento de Dashboards Executivos focados em Logística, Frota e Finanças.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#portfolio" class="bg-brand-DEFAULT hover:bg-brand-light text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-brand-DEFAULT/30 flex items-center justify-center gap-2">
@@ -494,10 +521,10 @@
                 <a href="mailto:almeida.welliton@outlook.com" title="E-mail" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
-                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/welliton-de-almeida-dados" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="LinkedIn">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="GitHub">
+                <a href="https://github.com/Wellitonalmeida93" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-xl text-slate-300 hover:text-white hover:bg-brand-DEFAULT transition-all duration-300 transform hover:scale-110 shadow-lg" target="_blank" title="GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
             </div>
@@ -936,7 +963,6 @@
             document.getElementById('modalImpacto').textContent = fluxoAtual.impacto;
 
             renderizarNodes(0);
-            // Já inicia a simulação visual automaticamente ao abrir o card!
             simularExecucao();
 
             const modal = document.getElementById('fluxoModal');
@@ -980,11 +1006,9 @@
         function atualizarDetalheNo(idx) {
             const no = fluxoAtual.nodes[idx];
             
-            // Atualiza o "videozinho" / palco visual da etapa
             document.getElementById('playerTituloBarra').textContent = `${no.step.toLowerCase().replace(' ', '_')}_${no.ferramenta.toLowerCase().replace(/[^a-z0-9]/g, '_')}.live`;
             document.getElementById('palcoAnimacao').innerHTML = no.simulacaoHtml;
 
-            // Atualiza a explicação textual clara
             document.getElementById('painelDetalheNo').innerHTML = `
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <div class="flex items-center gap-2.5">
